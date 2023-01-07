@@ -4,50 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6120aa38-059f-459b-a35b-97088791ab75" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/group-analyzer/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/group-analyzer/analyzer-core/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/group-analyzer/analyzer-core/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/group-analyzer/analyzer-core/src/main/kotlin/analyzer/Application.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/group-analyzer/analyzer-core/src/main/kotlin/analyzer/api/VkApi.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/group-analyzer/analyzer-core/src/main/kotlin/analyzer/controller/VkAnalyzerController.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/group-analyzer/analyzer-core/src/main/kotlin/analyzer/model/vk/GroupMembers.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/group-analyzer/analyzer-core/src/main/kotlin/analyzer/model/vk/VkGroup.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/group-analyzer/analyzer-core/src/main/kotlin/analyzer/model/vk/VkUser.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/group-analyzer/analyzer-core/src/main/kotlin/analyzer/parsing/VkParser.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/group-analyzer/analyzer-core/src/main/kotlin/analyzer/parsing/deserializer/VkUsersDeserializer.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/group-analyzer/analyzer-core/src/main/kotlin/analyzer/service/vk/StatisticService.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/group-analyzer/analyzer-core/src/main/kotlin/analyzer/service/vk/VkAnalyzerService.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/group-analyzer/analyzer-core/src/main/kotlin/analyzer/service/vk/VkUserStatisticService.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/group-analyzer/analyzer-core/src/main/kotlin/analyzer/utils/ParamsUtils.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/group-analyzer/analyzer-core/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/group-analyzer/analyzer-tg-bot/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/group-analyzer/analyzer-tg-bot/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/group-analyzer/analyzer-tg-bot/src/main/kotlin/src/Application.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/group-analyzer/analyzer-tg-bot/src/main/kotlin/src/config/AfterBotRegistration.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/group-analyzer/analyzer-tg-bot/src/main/kotlin/src/config/SpringWebhookBot.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/group-analyzer/analyzer-tg-bot/src/main/kotlin/src/config/TelegramBotInitializer.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/group-analyzer/analyzer-tg-bot/src/main/kotlin/src/config/TelegramBotStarterConfiguration.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/group-analyzer/analyzer-tg-bot/src/main/kotlin/src/controller/AnalyzerController.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/group-analyzer/analyzer-tg-bot/src/main/kotlin/src/request/RequestSender.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/group-analyzer/analyzer-tg-bot/src/main/kotlin/src/service/AnalyzerRequestService.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/group-analyzer/analyzer-tg-bot/src/main/kotlin/src/service/BotService.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/group-analyzer/analyzer-tg-bot/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/group-analyzer/analyzer-tg-bot/src/main/resources/spring.factories" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/group-analyzer/common-functionality/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/group-analyzer/common-functionality/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/group-analyzer/common-functionality/src/main/kotlin/analyzer/model/AnalyzerReport.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/group-analyzer/common-functionality/src/main/kotlin/analyzer/model/RequestForAnalyzer.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/group-analyzer/common-functionality/src/main/kotlin/analyzer/request/RequestExecutor.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/group-analyzer/common-functionality/src/main/kotlin/analyzer/utils/IoUtils.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/group-analyzer/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    <list default="true" id="6120aa38-059f-459b-a35b-97088791ab75" name="Changes" comment="init">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/group-analyzer/analyzer-core/src/main/kotlin/analyzer/controller/VkAnalyzerController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/group-analyzer/analyzer-core/src/main/kotlin/analyzer/controller/VkAnalyzerController.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/group-analyzer/analyzer-core/src/main/kotlin/analyzer/service/vk/StatisticService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/group-analyzer/analyzer-core/src/main/kotlin/analyzer/service/vk/StatisticService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/group-analyzer/analyzer-core/src/main/kotlin/analyzer/service/vk/VkAnalyzerService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/group-analyzer/analyzer-core/src/main/kotlin/analyzer/service/vk/VkAnalyzerService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/group-analyzer/analyzer-core/src/main/kotlin/analyzer/service/vk/VkUserStatisticService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/group-analyzer/analyzer-core/src/main/kotlin/analyzer/service/vk/VkUserStatisticService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/group-analyzer/analyzer-tg-bot/src/main/kotlin/src/controller/AnalyzerController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/group-analyzer/analyzer-tg-bot/src/main/kotlin/src/controller/AnalyzerController.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/group-analyzer/analyzer-tg-bot/src/main/kotlin/src/request/RequestSender.kt" beforeDir="false" afterPath="$PROJECT_DIR$/group-analyzer/analyzer-tg-bot/src/main/kotlin/src/request/RequestSender.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/group-analyzer/analyzer-tg-bot/src/main/kotlin/src/service/BotService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/group-analyzer/analyzer-tg-bot/src/main/kotlin/src/service/BotService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/group-analyzer/common-functionality/src/main/kotlin/analyzer/model/AnalyzerReport.kt" beforeDir="false" afterPath="$PROJECT_DIR$/group-analyzer/common-functionality/src/main/kotlin/analyzer/model/StatisticReport.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +82,7 @@
       <command value="mvn clean" />
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.tg-bot">
+  <component name="RunManager" selected="Spring Boot.core">
     <configuration name="core" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true">
       <option name="ACTIVE_PROFILES" />
       <module name="analyzer-core" />
@@ -145,8 +111,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.tg-bot" />
         <item itemvalue="Spring Boot.core" />
+        <item itemvalue="Spring Boot.tg-bot" />
       </list>
     </recent_temporary>
   </component>
@@ -161,8 +127,16 @@
       <workItem from="1672160831564" duration="3757000" />
       <workItem from="1672165654478" duration="1251000" />
       <workItem from="1672583486108" duration="5904000" />
-      <workItem from="1672769342966" duration="9779000" />
+      <workItem from="1672769342966" duration="17078000" />
     </task>
+    <task id="LOCAL-00001" summary="init">
+      <created>1672941186099</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1672941186099</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -179,17 +153,21 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="init" />
+    <option name="LAST_COMMIT_MESSAGE" value="init" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/group-analyzer/analyzer-core/src/main/kotlin/analyzer/service/vk/VkAnalyzerService.kt</url>
-          <line>50</line>
+          <line>46</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/group-analyzer/analyzer-core/src/main/kotlin/analyzer/service/vk/VkAnalyzerService.kt</url>
-          <line>45</line>
+          <line>40</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">

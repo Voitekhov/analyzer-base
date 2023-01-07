@@ -1,6 +1,6 @@
 package src.service
 
-import analyzer.model.AnalyzerReport
+import analyzer.model.StatisticReport
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 import org.telegram.telegrambots.bots.TelegramLongPollingBot
@@ -49,14 +49,14 @@ class BotService : TelegramLongPollingBot() {
         execute(sendMessage)
     }
 
-    fun sendReport(report: AnalyzerReport, userId: Long) {
+    fun sendReport(report: StatisticReport, userId: Long) {
         val sendPhoto =
             SendPhoto.builder().chatId(userId.toString()).photo(InputFile(requestSender.getPhotoResource(report.imageUrl!!).inputStream, "asd"))
                 .caption(createStringReport(report)).build();
         execute(sendPhoto)
     }
 
-    private fun createStringReport(report: AnalyzerReport): String {
+    private fun createStringReport(report: StatisticReport): String {
         val sb = StringBuilder()
         sb.append("Group name: ${report.groupName} \n")
         sb.append("Total members: ${report.membersCount} \n")
@@ -69,10 +69,10 @@ class BotService : TelegramLongPollingBot() {
         if (report.countMale != null) {
             sb.append("Male count: ${report.countMale} \n")
         }
-        if (report.topCities != null) {
+        if (report.cityUser != null) {
             var number = 1;
             sb.append("Top cities: \n")
-            for (e in report.topCities!!) {
+            for (e in report.cityUser!!) {
                 sb.append("$number . ${e.key} ${e.value} \n")
                 number++
             }

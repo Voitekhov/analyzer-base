@@ -1,68 +1,64 @@
 package analyzer.service.vk
 
+import analyzer.model.StatisticReport
 import analyzer.model.vk.VkUser
-import org.springframework.stereotype.Service
 import java.time.LocalDate
 import java.time.Period
 
 
-@Service
-class VkUserStatisticService : StatisticService<VkUser> {
+class VkUserStatisticService {
 
     private val female = 1
     private val male = 2
 
-    override fun getAverageAge(users: List<VkUser>): Double {
-        val now = LocalDate.now()
-        var counter = 0.0
-        var totalAge = 0.0
-        users.forEach {
-            if (it.bdate != null) {
-                totalAge += Period.between(it.bdate, now).years
-                counter++
-            }
-        }
-        return totalAge / counter
+    private val report: StatisticReport = StatisticReport()
+    private var totalAge: Int = 0
+    private var isRangeReady = false
+
+    private fun getAverageAge(): Int {
+        return totalAge / report.notNullBDate
     }
 
-    //TODO use Stream
-    override fun getTotalAge(users: List<VkUser>): Pair<Int, Int> {
-        var totalAge = 0
-        var counter = 0
+    fun increaseTotalAge(users: List<VkUser>) {
         val now = LocalDate.now()
         users.forEach {
             if (it.bdate != null) {
-                totalAge += Period.between(it.bdate, now).years
-                counter++
+                totalAge += getAge(it.bdate)
+                report.notNullBDate++
             }
         }
-        return Pair(totalAge, counter)
     }
 
-    override fun getMaleCount(users: List<VkUser>): Int {
-        return users.filter { it.sex == male }.size
+    fun increaseMaleCount(users: List<VkUser>) {
+        val maleCount = users.filter { it.sex == male }.size
+        report.countMale += maleCount
     }
 
-    override fun getFemaleCount(users: List<VkUser>): Int {
-        return users.filter { it.sex == female }.size
+    fun increaseFemaleCount(users: List<VkUser>) {
+        val femaleCount = users.filter { it.sex == female }.size
+        report.countFemale += femaleCount
     }
 
 
-    override fun populateUserCities(users: List<VkUser>, cityUser: MutableMap<String, Int>) {
+    fun populateUserCities(users: List<VkUser>) {
         users.forEach {
             if (it.city != null) {
                 val city = it.city
-                if (cityUser.containsKey(city)) {
-                    val count = cityUser[city]!!.plus(1)
-                    cityUser[city] = count
+                if (report.cityUser.containsKey(city)) {
+                    val count = report.cityUser[city]!!.plus(1)
+                    report.cityUser[city] = count
                 } else {
-                    cityUser.put(city, 1)
+                    report.cityUser.put(city, 1)
                 }
             }
         }
     }
 
-    override fun getUserTopCities(cityUser: Map<String, Int>, top: Int): Map<String, Int> {
+    fun getUserTopCities(top: Int): Map<String, Int> {
+        return getUserTopCities(top, report.cityUser)
+    }
+
+    fun getUserTopCities(top: Int, cityUser: Map<String, Int>): Map<String, Int> {
         val result: LinkedHashMap<String, Int> = LinkedHashMap()
 
         val entries = cityUser.toList()
@@ -77,14 +73,16 @@ class VkUserStatisticService : StatisticService<VkUser> {
         return result
     }
 
-    fun populateUserAgeMap(users: List<VkUser>, ageMap: MutableMap<Int, Int>) {
+
+    fun populateUserAgeMap(users: List<VkUser>) {
+        if (!isRangeReady) {
+            populateRange()
+        }
         users.forEach {
             if (it.bdate != null) {
                 val age = getAge(it.bdate)
-
+                putValueToAgeMap(age)
             }
-
-
         }
     }
 
@@ -92,5 +90,48 @@ class VkUserStatisticService : StatisticService<VkUser> {
         return Period.between(bDate, LocalDate.now()).years
     }
 
+    private fun populateRange() {
+        report.ageMap[0] = 0
+        report.ageMap[18] = 0
+        report.ageMap[25] = 0
+        report.ageMap[35] = 0
+        report.ageMap[45] = 0
+        report.ageMap[55] = 0
+        isRangeReady = true
+    }
 
+    private fun putValueToAgeMap(age: Int) {
+        fun merge(key: Int) {
+            report.ageMap.merge(key, 1) { v1, v2 -> v1 + v2 }
+        }
+        if (age >= 55) {
+            merge(55)
+            return
+        }
+        if (age >= 45) {
+            merge(45)
+            return
+        }
+        if (age >= 35) {
+            merge(35)
+            return
+        }
+        if (age >= 25) {
+            merge(25)
+            return
+        }
+        if (age >= 18) {
+            merge(18)
+            return
+        }
+        if (age >= 0) {
+            merge(0)
+            return
+        }
+    }
+
+    fun getStatisticReport(): StatisticReport {
+        report.averageAge = getAverageAge()
+        return report
+    }
 }

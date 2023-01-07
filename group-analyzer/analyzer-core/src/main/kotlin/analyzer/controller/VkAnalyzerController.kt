@@ -1,7 +1,7 @@
 package analyzer.controller
 
 
-import analyzer.model.AnalyzerReport
+import analyzer.model.StatisticReport
 import analyzer.model.RequestForAnalyzer
 import analyzer.service.vk.VkAnalyzerService
 import org.springframework.beans.factory.annotation.Autowired
@@ -15,7 +15,7 @@ class VkAnalyzerController @Autowired constructor(
 ) {
 
     @PostMapping("/analyze")
-    fun analyze(@RequestBody requestForAnalyzer: RequestForAnalyzer): AnalyzerReport {
+    fun analyze(@RequestBody requestForAnalyzer: RequestForAnalyzer): StatisticReport {
         val result = vkAnalyzerService.createAnalyzeReport(requestForAnalyzer.groupName, requestForAnalyzer.metrix);
         return result
     }

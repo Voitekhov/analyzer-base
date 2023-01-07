@@ -1,6 +1,6 @@
 package src.controller
 
-import analyzer.model.AnalyzerReport
+import analyzer.model.StatisticReport
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestBody
@@ -13,7 +13,7 @@ class AnalyzerController {
     lateinit var analyzerRequestService: AnalyzerRequestService
 
     @GetMapping
-    fun getReport(@RequestBody report: AnalyzerReport) {
+    fun getReport(@RequestBody report: StatisticReport) {
         // отправить его боту
     }
 

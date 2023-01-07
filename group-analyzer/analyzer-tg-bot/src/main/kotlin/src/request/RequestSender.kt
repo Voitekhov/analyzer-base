@@ -2,7 +2,7 @@ package src.request
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.databind.ObjectWriter
-import analyzer.model.AnalyzerReport
+import analyzer.model.StatisticReport
 import analyzer.model.RequestForAnalyzer
 import org.apache.http.client.methods.HttpGet
 import org.apache.http.client.methods.HttpPost
@@ -18,7 +18,7 @@ class RequestSender {
     val objectWriter: ObjectWriter = ObjectMapper().writer()
     val objectMapper: ObjectMapper = ObjectMapper()
 
-    fun sendToVkAnalyzer(requestForAnalyzer: RequestForAnalyzer): AnalyzerReport? {
+    fun sendToVkAnalyzer(requestForAnalyzer: RequestForAnalyzer): StatisticReport? {
         val client = HttpClients.createDefault()
         // вынести в отдельный метод по формированию дефолтного запроса
         val request = HttpPost("http://localhost:8080/analyze")
@@ -28,7 +28,7 @@ class RequestSender {
         request.entity = entity
         val response = client.execute(request)
         val json = IoUtils.getStringRequest(InputStreamResource(response.entity.content))
-        return objectMapper.readValue(json, AnalyzerReport::class.java)
+        return objectMapper.readValue(json, StatisticReport::class.java)
     }
 
     fun getPhotoResource(url: String): InputStreamResource {
