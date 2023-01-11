@@ -1,9 +1,7 @@
 package analyzer.parsing
 
 
-import analyzer.model.vk.GroupMembers
-import analyzer.model.vk.VkGroup
-import analyzer.model.vk.VkUser
+import analyzer.model.vk.*
 import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.databind.node.ArrayNode
 import com.fasterxml.jackson.databind.node.ObjectNode
@@ -14,7 +12,7 @@ import java.time.format.DateTimeFormatter
 
 @Component
 class VkParser {
-    val mapper = jacksonObjectMapper()
+    private val mapper = jacksonObjectMapper()
 
     fun parseGroupMembers(json: String): GroupMembers {
         val node = mapper.readTree(json);
@@ -28,20 +26,6 @@ class VkParser {
         return GroupMembers(count, ids)
     }
 
-/*    fun <T : Any> deserializeJson(json: String, classToCast: KClass<T>): List<T> {
-        val result: ArrayList<T> = ArrayList()
-        when (classToCast) {
-            VkUser::class -> {
-                val parsed: List<VkUser> = mapper.readValue(json,object : TypeReference<List<VkUser>>(){})
-                return parsed as List<T>
-            }
-            VkGroup::class -> {
-                result.add(mapper.readValue(json, VkUser::class.java) as T)
-            }
-        }
-        return result
-    }*/
-
     fun parseVkUsers(json: String): List<VkUser> {
         val users: MutableList<VkUser> = ArrayList()
         val rootNode = mapper.readTree(json)
@@ -54,7 +38,7 @@ class VkParser {
         return users
     }
 
-    fun parseVkUser(vkUserJson: JsonNode): VkUser {
+    private fun parseVkUser(vkUserJson: JsonNode): VkUser {
         val formatter = DateTimeFormatter.ofPattern("d.M.yyyy")
         val id = vkUserJson["id"].asInt()
         var bdate: LocalDate? = null
@@ -78,7 +62,53 @@ class VkParser {
         val groupId = mainChild["id"].asInt()
         val groupName = mainChild["name"].asText()
         val avatarUrl = mainChild["photo_200"].asText()
-        return VkGroup(groupId, groupName, null, avatarUrl)
+        val nameId = mainChild["screen_name"].asText()
+        return VkGroup(groupId, groupName, nameId, null, avatarUrl)
+    }
+
+    fun parsePosts(json: String): List<VkPost> {
+        val posts: MutableList<VkPost> = ArrayList()
+        val rootNode = mapper.readTree(json)
+        val items = rootNode["response"].get("items") as ArrayNode
+        items.forEach { jn ->
+            run {
+                posts.add(parsePost(jn))
+            }
+        }
+        return posts
+    }
+
+    private fun parsePost(jsnNode: JsonNode): VkPost {
+        val id = jsnNode["id"].asInt()
+        val fromId = jsnNode["from_id"].asInt()
+        val date = jsnNode["date"].asInt()
+        val commentsCount = (jsnNode["comments"] as ObjectNode)["count"].asInt()
+        val photos = getPhotos((jsnNode["attachments"] as ArrayNode))
+        val likesCount = (jsnNode["likes"] as ObjectNode)["count"].asInt()
+        val repostsCount = (jsnNode["reposts"] as ObjectNode)["count"].asInt()
+        val text = jsnNode["text"].asText()
+        val viewsCount = (jsnNode["views"] as ObjectNode)["count"].asInt()
+        return VkPost(id, fromId, date, commentsCount, photos, likesCount, repostsCount, text, viewsCount)
+    }
+
+    private fun getPhotos(attachments: ArrayNode): List<VkPhoto> {
+        val photos: MutableList<VkPhoto> = ArrayList()
+        attachments.forEach { p ->
+            if (p["type"].asText().equals("photo")) {
+                val photoNode = p["photo"] as ObjectNode
+                val id = photoNode["id"].asInt()
+                val ownerId = photoNode["owner_id"].asInt()
+                val url = getMaxSizePhotoUrl(photoNode["sizes"] as ArrayNode)
+                val photo = VkPhoto(id, ownerId, url)
+                photos.add(photo)
+            }
+        }
+        return photos
+    }
+
+    private fun getMaxSizePhotoUrl(sizes: ArrayNode): String {
+        val maxSize = sizes.lastOrNull() ?: return ""
+        return maxSize.get("url").asText()
     }
 
 }

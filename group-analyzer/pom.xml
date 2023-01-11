@@ -23,7 +23,7 @@
 
     <properties>
         <spring.boot.maven.plugin.version>2.5.7</spring.boot.maven.plugin.version>
-        <spring.boot.dependencies.version>2.5.7</spring.boot.dependencies.version>
+        <spring.boot.dependencies.version>3.0.0</spring.boot.dependencies.version>
     </properties>
 
 
@@ -50,6 +50,11 @@
                 <groupId>com.fasterxml.jackson.module</groupId>
                 <artifactId>jackson-module-kotlin</artifactId>
                 <version>2.14.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-webflux</artifactId>
+                <version>${spring.boot.dependencies.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

@@ -4,16 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6120aa38-059f-459b-a35b-97088791ab75" name="Changes" comment="init">
+    <list default="true" id="6120aa38-059f-459b-a35b-97088791ab75" name="Changes" comment="refactoring VkAnalyzerService and VkUserStatisticService pt.1">
+      <change afterPath="$PROJECT_DIR$/group-analyzer/analyzer-core/src/main/kotlin/analyzer/controller/VkGroupController.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/group-analyzer/analyzer-core/src/main/kotlin/analyzer/model/vk/VkPhoto.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/group-analyzer/analyzer-core/src/main/kotlin/analyzer/model/vk/VkPost.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/group-analyzer/analyzer-core/src/main/kotlin/analyzer/model/vk/VkPostStatistic.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/group-analyzer/analyzer-core/src/main/kotlin/analyzer/service/vk/VkPostService.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/group-analyzer/analyzer-core/src/main/kotlin/analyzer/service/vk/VkService.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/group-analyzer/common-functionality/src/main/kotlin/analyzer/conf/WebClientConfiguration.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/group-analyzer/analyzer-core/src/main/kotlin/analyzer/api/VkApi.kt" beforeDir="false" afterPath="$PROJECT_DIR$/group-analyzer/analyzer-core/src/main/kotlin/analyzer/api/VkApi.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/group-analyzer/analyzer-core/src/main/kotlin/analyzer/controller/VkAnalyzerController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/group-analyzer/analyzer-core/src/main/kotlin/analyzer/controller/VkAnalyzerController.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/group-analyzer/analyzer-core/src/main/kotlin/analyzer/service/vk/StatisticService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/group-analyzer/analyzer-core/src/main/kotlin/analyzer/service/vk/StatisticService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/group-analyzer/analyzer-core/src/main/kotlin/analyzer/model/vk/GroupMembers.kt" beforeDir="false" afterPath="$PROJECT_DIR$/group-analyzer/analyzer-core/src/main/kotlin/analyzer/model/vk/GroupMembers.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/group-analyzer/analyzer-core/src/main/kotlin/analyzer/model/vk/VkGroup.kt" beforeDir="false" afterPath="$PROJECT_DIR$/group-analyzer/analyzer-core/src/main/kotlin/analyzer/model/vk/VkGroup.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/group-analyzer/analyzer-core/src/main/kotlin/analyzer/parsing/VkParser.kt" beforeDir="false" afterPath="$PROJECT_DIR$/group-analyzer/analyzer-core/src/main/kotlin/analyzer/parsing/VkParser.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/group-analyzer/analyzer-core/src/main/kotlin/analyzer/parsing/deserializer/VkUsersDeserializer.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/group-analyzer/analyzer-core/src/main/kotlin/analyzer/service/vk/StatisticService.kt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/group-analyzer/analyzer-core/src/main/kotlin/analyzer/service/vk/VkAnalyzerService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/group-analyzer/analyzer-core/src/main/kotlin/analyzer/service/vk/VkAnalyzerService.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/group-analyzer/analyzer-core/src/main/kotlin/analyzer/service/vk/VkUserStatisticService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/group-analyzer/analyzer-core/src/main/kotlin/analyzer/service/vk/VkUserStatisticService.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/group-analyzer/analyzer-tg-bot/src/main/kotlin/src/controller/AnalyzerController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/group-analyzer/analyzer-tg-bot/src/main/kotlin/src/controller/AnalyzerController.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/group-analyzer/analyzer-tg-bot/src/main/kotlin/src/request/RequestSender.kt" beforeDir="false" afterPath="$PROJECT_DIR$/group-analyzer/analyzer-tg-bot/src/main/kotlin/src/request/RequestSender.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/group-analyzer/analyzer-tg-bot/src/main/kotlin/src/service/BotService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/group-analyzer/analyzer-tg-bot/src/main/kotlin/src/service/BotService.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/group-analyzer/common-functionality/src/main/kotlin/analyzer/model/AnalyzerReport.kt" beforeDir="false" afterPath="$PROJECT_DIR$/group-analyzer/common-functionality/src/main/kotlin/analyzer/model/StatisticReport.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/group-analyzer/common-functionality/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/group-analyzer/common-functionality/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/group-analyzer/common-functionality/src/main/kotlin/analyzer/model/RequestForAnalyzer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/group-analyzer/common-functionality/src/main/kotlin/analyzer/model/RequestForAnalyzer.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/group-analyzer/common-functionality/src/main/kotlin/analyzer/request/RequestExecutor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/group-analyzer/common-functionality/src/main/kotlin/analyzer/request/RequestExecutor.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/group-analyzer/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/group-analyzer/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +34,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Class" />
         <option value="Kotlin Class" />
       </list>
     </option>
@@ -46,26 +58,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "jdk.selected.JAVA_MODULE": "openjdk-17",
-    "last_opened_file_path": "/Users/antonvoitekhov/IdeaProjects/analyzer-base/group-analyzer/analyzer-tg-bot/src/main/resources",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "spring.configuration.checksum": "525f939755c4a4b402513fadfbd03ac4"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-17&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/antonvoitekhov/IdeaProjects/analyzer-base/group-analyzer/analyzer-tg-bot/src/main/resources&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;d20926421fa3c48ee6330fe7d5f28a5f&quot;
   }
-}]]></component>
+}</component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/group-analyzer/analyzer-tg-bot/src/main/resources" />
@@ -79,6 +94,7 @@
   </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
+      <command value="mvn -X clean" />
       <command value="mvn clean" />
     </option>
   </component>
@@ -127,7 +143,9 @@
       <workItem from="1672160831564" duration="3757000" />
       <workItem from="1672165654478" duration="1251000" />
       <workItem from="1672583486108" duration="5904000" />
-      <workItem from="1672769342966" duration="17078000" />
+      <workItem from="1672769342966" duration="32381000" />
+      <workItem from="1673363370888" duration="3541000" />
+      <workItem from="1673444813472" duration="2695000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1672941186099</created>
@@ -136,7 +154,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672941186099</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="refactoring VkAnalyzerService and VkUserStatisticService pt.1">
+      <created>1673097502043</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1673097502043</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -155,19 +180,20 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init" />
-    <option name="LAST_COMMIT_MESSAGE" value="init" />
+    <MESSAGE value="refactoring VkAnalyzerService and VkUserStatisticService pt.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactoring VkAnalyzerService and VkUserStatisticService pt.1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/group-analyzer/analyzer-core/src/main/kotlin/analyzer/service/vk/VkAnalyzerService.kt</url>
-          <line>46</line>
+          <line>36</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/group-analyzer/analyzer-core/src/main/kotlin/analyzer/service/vk/VkAnalyzerService.kt</url>
-          <line>40</line>
+          <line>30</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
@@ -175,7 +201,27 @@
           <line>18</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/group-analyzer/analyzer-core/src/main/kotlin/analyzer/service/vk/VkPostService.kt</url>
+          <line>24</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/group-analyzer/common-functionality/src/main/kotlin/analyzer/request/RequestExecutor.kt</url>
+          <line>34</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/group-analyzer/common-functionality/src/main/kotlin/analyzer/request/RequestExecutor.kt</url>
+          <line>27</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="java.util.LinkedHashMap$Entry" memberName="value" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>
